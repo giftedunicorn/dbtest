@@ -1,5 +1,5 @@
 const debug = require('debug')(`${process.env.APPNAME}:updateUser`);
-const User = require('./mongodb/user');
+const User = require('./models/user');
 
 async function updateUser(req, res, next) {
   debug('updateUser INVOKED', req.body, req.ip);

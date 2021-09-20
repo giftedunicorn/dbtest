@@ -1,5 +1,5 @@
 const debug = require('debug')(`${process.env.APPNAME}:getUser`);
-const User = require('./mongodb/user');
+const User = require('./models/user');
 
 async function getUser(req, res) {
   debug('getUser INVOKED', req.query, req.ip);
