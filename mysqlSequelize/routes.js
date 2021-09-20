@@ -1,5 +1,5 @@
 const routes = {
-  users: require('./routes/users'),
+  user: require('./routes/user'),
   instruments: require('./routes/instruments'),
   orchestras: require('./routes/orchestras'),
   // Add more routes here...
@@ -20,33 +20,34 @@ function makeHandlerAwareOfAsyncErrors(handler) {
 function routeGenerator(app) {
   // We define the standard REST APIs for each route (if they exist).
   for (const [routeName, routeController] of Object.entries(routes)) {
+    console.log(`/api/mysqlseq/${routeName}`)
     if (routeController.getAll) {
       app.get(
-        `/mysqlseq/api/${routeName}`,
+        `/api/mysqlseq/${routeName}`,
         makeHandlerAwareOfAsyncErrors(routeController.getAll)
       );
     }
     if (routeController.getById) {
       app.get(
-        `/mysqlseq/api/${routeName}/:id`,
+        `/api/mysqlseq/${routeName}/:id`,
         makeHandlerAwareOfAsyncErrors(routeController.getById)
       );
     }
     if (routeController.create) {
       app.post(
-        `/mysqlseq/api/${routeName}`,
+        `/api/mysqlseq/${routeName}`,
         makeHandlerAwareOfAsyncErrors(routeController.create)
       );
     }
     if (routeController.update) {
       app.put(
-        `/mysqlseq/api/${routeName}/:id`,
+        `/api/mysqlseq/${routeName}/:id`,
         makeHandlerAwareOfAsyncErrors(routeController.update)
       );
     }
     if (routeController.remove) {
       app.delete(
-        `/mysqlseq/api/${routeName}/:id`,
+        `/api/mysqlseq/${routeName}/:id`,
         makeHandlerAwareOfAsyncErrors(routeController.remove)
       );
     }

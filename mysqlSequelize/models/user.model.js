@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
 			primaryKey: true,
 			type: DataTypes.INTEGER
 		},
-		usernamesdf: {
+		username: {
 			allowNull: false,
 			type: DataTypes.STRING,
 			unique: true,
